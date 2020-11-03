@@ -54,8 +54,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return false;
         }
 
-        user.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
-        user.setPassword(user.getPassword());
         userRepository.save(user);
 
         return true;
@@ -74,6 +72,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     public void editUser(User user) {
 
-        entityManager.merge(entityManager.find(User.class, user.getId()));
+        userRepository.save(user);
+    }
+
+    public Optional<Role> findRole(Long id) {
+
+        return roleRepository.findById(id);
     }
 }

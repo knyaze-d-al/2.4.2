@@ -1,6 +1,7 @@
 package springcrudapp.model;
 
 import org.springframework.security.core.GrantedAuthority;
+import springcrudapp.dao.RoleRepository;
 
 import javax.persistence.*;
 import java.util.Set;
